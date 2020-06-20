@@ -37,3 +37,17 @@
     transform: translateY(0px)
   }
 }
+
+
+
+.react-datepicker__input-container > input {
+    height: 50px;
+    margin: 16px;
+    background-color:'white';
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: 'rgb(0, 45, 55)';
+    justify-content: 'flex-start';
+    font-size: 20px;
+    text-align: center;
+}

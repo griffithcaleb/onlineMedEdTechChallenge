@@ -9,11 +9,11 @@ export const headerStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,
-    backgroundColor: colors.lightBlue,
+    backgroundColor: colors.darkBlue,
     position: 'sticky' as any,
     top: 0,
     zIndex: 99,
-    borderBottomColor: colors.black,
+    borderBottomColor: colors.lightBlue,
     borderBottomWidth: 5
   },
   titleStyle: {

@@ -7,10 +7,12 @@ export const editTodoStyles = StyleSheet.create({
         marginHorizontal: 16,
         marginTop: 14,
         marginBottom: 5,
-        borderWidth: 1,
+        borderWidth: 2,
         justifyContent: 'flex-start',
         fontSize: 20,
-        paddingLeft: 10
+        paddingLeft: 10,
+        borderRadius: 5,
+        borderColor: colors.black
     },
     editHeader: {
       fontSize: 22,
@@ -26,9 +28,9 @@ export const editTodoStyles = StyleSheet.create({
         alignItems: 'center',
     },
     continueButton: {
-        backgroundColor: 'rgb(79, 204, 222)',
+        backgroundColor: colors.lightBlue,
         height: 50,
-        width: 100,
+        padding: 10,
         borderRadius: 5,
         display: 'flex',
         justifyContent: 'center',
@@ -38,22 +40,25 @@ export const editTodoStyles = StyleSheet.create({
             height: -1.5
         },
         shadowOpacity: 0.3,
-        shadowRadius: 5
+        shadowRadius: 5,
+        borderWidth: 2,
+        borderColor: colors.darkBlue
     },
     buttonText: {
         color: colors.white,
-        fontSize: 20
+        fontSize: 20,
+        fontWeight: 'bold'
     },
     backArrow: {
         height: 45,
         width: 45,
-        tintColor: 'rgb(79, 204, 222)'
+        tintColor: colors.darkBlue
     },
     back: {
         padding: 5
     },
     errorText: {
-        color: 'colors.red'
+        color: colors.red
     },
     errorContainer: {
         height: 15,

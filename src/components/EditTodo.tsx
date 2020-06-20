@@ -7,6 +7,8 @@ import { AddTodoFormFields, todoValidation } from '../lib/forms/todoForm'
 import { updateTodo } from '../redux/actionCreators/todos'
 import { Todo } from '../redux/slices/todosSlice';
 import { editTodoStyles as styles} from '../styles/editTodo'
+import { colors } from '../lib/colors';
+import { TodoButton } from './TodoButton';
 
 interface EditTodoProps {
     toggleModal: () => void
@@ -37,19 +39,19 @@ export const EditTodo: FC<EditTodoProps> = ({ toggleModal, todo}) => {
             </TouchableOpacity>
             {!showEditContent &&
               <View style={styles.descriptionContainer}>
-                <Text style={styles.descriptionHeader}>{`Name:`}</Text>
+                <Text style={styles.descriptionHeader}>{editText.nameHeader}</Text>
                 <Text>{todo?.name}</Text>
-                <Text style={styles.descriptionHeader}>{`Description:`}</Text>
+                <Text style={styles.descriptionHeader}>{editText.descriptionHeader}</Text>
                 <Text>{todo?.description}</Text>
                 {!!todo?.targetCompletionDate &&
                   <>
-                    <Text style={styles.descriptionHeader}>{`Target completion date:`}</Text>
+                    <Text style={styles.descriptionHeader}>{editText.target}</Text>
                     <Text>{new Date(todo.targetCompletionDate).toLocaleDateString()}</Text>
                   </>
                 }
                 {!!todo?.completionDate &&
                   <>
-                   <Text style={styles.descriptionHeader}>{`Completion date:`}</Text>
+                   <Text style={styles.descriptionHeader}>{editText.completionDate}</Text>
                   <Text>{new Date(todo.completionDate).toLocaleDateString()}</Text>
                    </>
                 }
@@ -72,44 +74,44 @@ export const EditTodo: FC<EditTodoProps> = ({ toggleModal, todo}) => {
                     <>
                       {step === 1 &&
                         <>
-                          <Text style={styles.editHeader}>Name your to do!</Text>
+                          <Text style={styles.editHeader}>{editText.name}</Text>
                           <TextInput
                             value={f.values.name}
                             onChangeText={f.handleChange('name')}
-                            selectionColor={'rgb(0, 45, 55)'}
+                            selectionColor={colors.darkBlue}
                             multiline={false}
                             style={styles.descriptionInput}
                           />
                           <View style={styles.errorContainer}>
                             {
                               !!f.errors.name &&
-                              <Text style={styles.errorText}>*required*</Text>
+                              <Text style={styles.errorText}>{editText.required}</Text>
                             }
                           </View>
                         </>
                       }
                       {step === 2 &&
                         <>
-                        <Text style={styles.editHeader}>Describe your to do!</Text>
+                        <Text style={styles.editHeader}>{editText.description}</Text>
                         <TextInput
                           numberOfLines={4}
                           value={f.values.description}
                           onChangeText={f.handleChange('description')}
-                          selectionColor={'rgb(0, 45, 55)'}
+                          selectionColor={colors.darkBlue}
                           multiline={true}
                           style={[styles.descriptionInput, { height: 200, paddingTop: 5 }]}
                         />
                           <View style={styles.errorContainer}>
                             {
                               !!f.errors.name &&
-                              <Text style={styles.errorText}>*required*</Text>
+                              <Text style={styles.errorText}>{editText.required}</Text>
                             }
                           </View>
                         </>
                       }
                       {step === 3 &&
                         <>
-                        <Text style={styles.editHeader}>What day do you need to get this done?</Text>
+                        <Text style={styles.editHeader}>{editText.date}</Text>
                           <DatePicker
                             selected={f.values.date}
                             onChange={(e) => f.setFieldValue('date', e)}
@@ -117,13 +119,13 @@ export const EditTodo: FC<EditTodoProps> = ({ toggleModal, todo}) => {
                           />
                         </>
                       }
-                      <TouchableOpacity
-                        disabled={(step === 1 && f.errors.name || step === 2 && f.errors.description) ? true : false}
-                        onPress={step === 3 ? f.submitForm : () => setStep(step + 1)}
-                        style={styles.continueButton}
-                      >
-                        <Text style={styles.buttonText}>{step === 3 ? 'Create' : 'Continue'}</Text>
-                      </TouchableOpacity>
+                      <TodoButton 
+                        disabled={(step === 1 && f.errors.name || step === 2 && f.errors.description) && true || false}
+                        onButtonPress={step === 3 && f.submitForm || (() => setStep(step +1))}
+                        title={step === 3 && 'Update!' || 'Continue'}
+                        titleStyle={styles.buttonText}
+                        buttonStyle={styles.continueButton}
+                      />
                     </>
                   )
                 }}
@@ -132,4 +134,15 @@ export const EditTodo: FC<EditTodoProps> = ({ toggleModal, todo}) => {
             }
         </View>
     )
+}
+
+const editText = {
+  name: 'Name your to do!',
+  description: 'Describe your to do!',
+  required: '*required*',
+  date: 'What day do you need to get this done?',
+  completionDate: 'Completion date: ',
+  target: 'Target completion date: ',
+  nameHeader: 'Name: ',
+  descriptionHeader: 'Description: '
 }

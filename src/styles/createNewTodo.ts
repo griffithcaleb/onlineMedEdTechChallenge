@@ -6,10 +6,11 @@ export const createNewTodoStyles = StyleSheet.create({
         marginHorizontal: 16,
         marginTop: 14,
         marginBottom: 5,
-        borderWidth: 1,
+        borderWidth: 2,
         fontSize: 20,
         paddingLeft: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        borderColor: colors.darkBlue
     },
     container: {
         height: '100%',
@@ -43,7 +44,8 @@ export const createNewTodoStyles = StyleSheet.create({
     },
     backArrow: {
         height: 45,
-        width: 55
+        width: 55,
+        tintColor: colors.darkBlue
     },
     back: {
         padding: 25

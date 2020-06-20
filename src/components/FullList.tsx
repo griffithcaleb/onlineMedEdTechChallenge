@@ -3,11 +3,6 @@ import {StyleSheet, View} from 'react-native'
 import { List } from '../components/List';
 import { Todo } from '../redux/slices/todosSlice';
 
-const styles = StyleSheet.create({
-  listContainer: {
-      flexDirection: 'row'
-  },
-})
 
 interface FullListProps {
     todos?: Todo []
@@ -32,3 +27,9 @@ export const FullList: FC<FullListProps> = ({todos, handleTodoEdit}) => {
       </View>
   )
 }
+
+const styles = StyleSheet.create({
+  listContainer: {
+    flexDirection: 'row'
+  },
+})

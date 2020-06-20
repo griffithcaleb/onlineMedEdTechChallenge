@@ -5,24 +5,33 @@ export const listStyles = StyleSheet.create({
     container: {
         flex: 1,
     },
+    underline: {
+      height: 25,
+      width: 100,
+      tintColor: colors.black
+    },
+    underlineContainer: {
+
+    },
+    edit: {
+      height: 25, 
+      width: 25
+    },
+    editContainer: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0
+    },
     listHeader: {
         padding: 10,
-        backgroundColor: colors.darkBlue,
         display: 'flex',
         alignItems: 'center',
         height: 50,
-        justifyContent: 'center',
-        shadowOffset: {
-            width: 1.5,
-            height: 2
-        },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
     },
     headerText: {
-        color: colors.white,
+        color: colors.black,
         alignSelf: 'center',
-        fontSize: 22,
+        fontSize: 16,
     },
     listItem: {
         padding: 15,
@@ -46,7 +55,7 @@ export const listStyles = StyleSheet.create({
         height: 15,
         width: 15,
         backgroundColor: 'transparent',
-        tintColor: colors.red
+        tintColor: colors.black
     },
     emptyCircle: {
         height: 35,

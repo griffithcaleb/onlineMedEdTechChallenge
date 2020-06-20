@@ -83,19 +83,12 @@ export const CreateNewTodo: FC<CreateNewTodoProps> = ({toggleModal}) => {
                     </>
                   }
                   <TodoButton 
-                    title={step === 3 && 'Create' || 'Continue'}
+                    title={step === 3 && 'Create!' || 'Continue'}
                     onButtonPress={step === 3 && f.submitForm || (() => setStep(step + 1)) }
                     buttonStyle={styles.continueButton}
                     titleStyle={styles.buttonText}
                     disabled={(step === 1 && f.errors.name || step === 2 && f.errors.description) && true || false}
                   />
-                  {/* <TouchableOpacity
-                    disabled={(step === 1 && f.errors.name || step === 2 && f.errors.description) ? true : false}
-                    onPress={step === 3 ? f.submitForm : () => setStep(step + 1)}
-                    style={styles.continueButton}
-                  >
-                    <Text style={styles.buttonText}>{step === 3 ? 'Create' : 'Continue'}</Text>
-                  </TouchableOpacity> */}
                 </>
               )
             }}

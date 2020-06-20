@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup';
-import { View, TextInput, StyleSheet, Text, TouchableOpacity, Image } from 'react-native'
+import { View, TextInput, Text, TouchableOpacity, Image } from 'react-native'
 import DatePicker from "react-datepicker";
 import { AddTodoFormFields, todoValidation } from '../lib/forms/todoForm'
 import { updateTodo } from '../redux/actionCreators/todos'

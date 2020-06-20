@@ -9,6 +9,7 @@ import { EditTodo } from '../components/EditTodo';
 import { homeStyles as styles } from '../styles/home'
 import { PropsFromRedux, connector } from '../redux/types/todos';
 import { TodoButton } from '../components/TodoButton'
+import { Footer } from '../components/Footer'
 
 const Home: FC<PropsFromRedux> = ({todos}) => {
   // get all todos from local storage on initial load
@@ -48,6 +49,7 @@ const Home: FC<PropsFromRedux> = ({todos}) => {
          />
         </>
         }
+      <Footer />
       </View>
   )
 }

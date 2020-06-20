@@ -14,7 +14,7 @@ export const createNewTodoStyles = StyleSheet.create({
     },
     container: {
         height: '100%',
-        width: '100%'
+        width: '100%',
     },
     content: {
         paddingTop: 20,

@@ -10,7 +10,7 @@ export type ValidationSchema =
 export const initialValues: AddTodoFormFields = {
     description: '',
     name: '',
-    date: new Date,
+    date: new Date()
 };
 
 export interface AddTodoFormFields {

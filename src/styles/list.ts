@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../lib/colors'
 
 export const listStyles = StyleSheet.create({
     container: {
@@ -6,7 +7,7 @@ export const listStyles = StyleSheet.create({
     },
     listHeader: {
         padding: 10,
-        backgroundColor: 'rgb(0, 45, 55)',
+        backgroundColor: colors.darkBlue,
         display: 'flex',
         alignItems: 'center',
         height: 50,
@@ -19,20 +20,20 @@ export const listStyles = StyleSheet.create({
         shadowRadius: 5,
     },
     headerText: {
-        color: 'white',
+        color: colors.white,
         alignSelf: 'center',
         fontSize: 22,
     },
     listItem: {
         padding: 15,
-        borderColor: 'rgb(0, 45, 55)',
+        borderColor: colors.darkBlue,
         borderRadius: 5,
         borderWidth: 2,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         marginHorizontal: 10,
-        marginVertical: 15,
+        marginVertical: 10,
         alignItems: 'center',
         shadowOffset: {
             width: 1.5,
@@ -42,25 +43,26 @@ export const listStyles = StyleSheet.create({
         shadowRadius: 5,
     },
     delete: {
-        height: 25,
-        width: 25,
-        tintColor: 'red',
-        backgroundColor: 'white'
+        height: 15,
+        width: 15,
+        backgroundColor: 'transparent',
+        tintColor: colors.red
     },
     emptyCircle: {
         height: 35,
         width: 35,
-        tintColor: 'rgb(0, 45, 55)',
+        tintColor: colors.darkBlue,
     },
     circleContainer: {
+      marginRight: 'auto'
     },
     deleteContainer: {
         marginRight: 'auto',
         position: 'absolute',
-        top: -13,
-        right: -13
+        top: -5,
+        right: -8
     },
     nameText: {
-        fontSize: 22
+        fontSize: 15
     }
 })

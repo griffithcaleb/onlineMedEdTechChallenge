@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native'
+import { colors } from '../lib/colors'
 
 export const editTodoStyles = StyleSheet.create({
     descriptionInput: {
@@ -40,7 +41,7 @@ export const editTodoStyles = StyleSheet.create({
         shadowRadius: 5
     },
     buttonText: {
-        color: 'white',
+        color: colors.white,
         fontSize: 20
     },
     backArrow: {
@@ -52,7 +53,7 @@ export const editTodoStyles = StyleSheet.create({
         padding: 5
     },
     errorText: {
-        color: 'red'
+        color: 'colors.red'
     },
     errorContainer: {
         height: 15,

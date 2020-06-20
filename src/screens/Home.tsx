@@ -1,54 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
-import { Dimensions, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { RootState } from "../redux/store";
-import { connect, ConnectedProps } from "react-redux";
+import { View } from "react-native";
 import { Header } from '../components/Header'
 import { FullList } from '../components/FullList'
 import { CreateNewTodo } from '../components/CreateNewTodo'
 import { setTodos } from "../redux/actionCreators/todos";
 import { Todo } from "../redux/slices/todosSlice";
 import { EditTodo } from '../components/EditTodo';
-
-const { height, width } = Dimensions.get('screen')
-
-const styles = StyleSheet.create({
-    container: {
-      height,
-      width,
-      alignContent: 'center',
-    },
-  continueButton: {
-    backgroundColor: 'rgb(79, 204, 222)',
-    height: 50,
-    width: 200,
-    padding: 30,
-    borderRadius: 5,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 'auto',
-    shadowOffset: {
-      width: 1.5,
-      height: -1.5
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 5
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold'
-  }
-})
-
-const mapState = (state: RootState) => ({
-  todos: state.todos
-})
-
-const connector = connect(mapState)
-
-type PropsFromRedux = ConnectedProps<typeof connector>
-
+import { homeStyles as styles } from '../styles/home'
+import { PropsFromRedux, connector } from '../redux/types/todos';
+import { TodoButton } from '../components/TodoButton'
 
 const Home: FC<PropsFromRedux> = ({todos}) => {
   // get all todos from local storage on initial load
@@ -80,12 +40,12 @@ const Home: FC<PropsFromRedux> = ({todos}) => {
          handleTodoEdit={handleTodoEdit}
          todos={todos}
          />
-        <TouchableOpacity
-          onPress={() => setShowCreateState(true)}
-          style={styles.continueButton}
-        >
-          <Text style={styles.buttonText}>Create New</Text>
-        </TouchableOpacity>
+         <TodoButton
+          buttonStyle={styles.continueButton}
+          title={'Create New'}
+          titleStyle={styles.buttonText}
+          onButtonPress={() => setShowCreateState(true)}
+         />
         </>
         }
       </View>

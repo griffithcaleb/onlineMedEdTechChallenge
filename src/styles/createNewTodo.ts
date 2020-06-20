@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../lib/colors'
 export const createNewTodoStyles = StyleSheet.create({
     descriptionInput: {
         height: 50,
@@ -19,9 +20,9 @@ export const createNewTodoStyles = StyleSheet.create({
         alignItems: 'center',
     },
     continueButton: {
-        backgroundColor: 'rgb(79, 204, 222)',
+        backgroundColor: colors.lightBlue,
         height: 50,
-        width: 100,
+        padding: 10,
         borderRadius: 5,
         display: 'flex',
         justifyContent: 'center',
@@ -32,11 +33,13 @@ export const createNewTodoStyles = StyleSheet.create({
         },
         shadowOpacity: 0.3,
         shadowRadius: 5,
-
+        borderColor: colors.darkBlue,
+        borderWidth: 2
     },
     buttonText: {
-        color: 'white',
+        color: colors.white,
         fontSize: 22,
+        fontWeight: 'bold',
     },
     backArrow: {
         height: 45,
@@ -46,7 +49,7 @@ export const createNewTodoStyles = StyleSheet.create({
         padding: 25
     },
     errorText: {
-        color: 'red',
+        color: colors.red,
     },
     errorContainer: {
         height: 15,

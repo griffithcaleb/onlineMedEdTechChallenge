@@ -3,6 +3,7 @@ import { Todo } from '../redux/slices/todosSlice'
 import { Image, View, Text, FlatList, ListRenderItemInfo, TouchableOpacity } from 'react-native'
 import { completeTodo, setTodoToNotCompleted, deleteTodo } from '../redux/actionCreators/todos'
 import {listStyles as styles } from '../styles/list'
+import { colors } from '../lib/colors'
 
 interface ListProps {
     todos?: Todo[]
@@ -21,19 +22,6 @@ export const List: FC<ListProps> = ({ todos, type, handleTodoEdit}) => {
           style={styles.listItem}
           onPress={handleTodoEdit(id)}
           >
-          <TouchableOpacity
-            onPress={
-              type === 'Todo' ? 
-              () => completeTodo(id):
-              () => setTodoToNotCompleted(id)
-            }
-            style={styles.circleContainer}>
-            <Image source={
-              type === 'Todo' ?
-                require('../assets/emptyCircle.png') :
-                require('../assets/checkedCircle.png')
-            } style={styles.emptyCircle}></Image>
-          </TouchableOpacity>
           <Text style={styles.nameText}numberOfLines={1}>{name}</Text>
           <TouchableOpacity
             onPress={() => deleteTodo(id)}
@@ -45,8 +33,8 @@ export const List: FC<ListProps> = ({ todos, type, handleTodoEdit}) => {
     }
     return (
         <View style={styles.container}>
-        <View style={[styles.listHeader, type === 'Todo' && { backgroundColor: 'rgb(76, 187, 228)'}]}>
-            <Text style={[styles.headerText, type === 'Todo' && {color: 'black'}]}>{header}</Text>
+        <View style={[styles.listHeader, type === 'Todo' && { backgroundColor: colors.teal }]}>
+            <Text style={[styles.headerText, type === 'Todo' && {color: colors.black}]}>{header}</Text>
           </View>
             <FlatList
                 data={todos}

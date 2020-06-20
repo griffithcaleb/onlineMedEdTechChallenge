@@ -16,7 +16,7 @@ export const createNewTodo = (values: AddTodoFormFields): void => {
         id: `_${Math.random().toString(36)}`,
         name: values.name,
         description: values.description,
-        targetCompletionDate: values.date,
+        targetCompletionDate: new Date(values.date).toLocaleDateString(),
         completed: false
     }
     getData().then(data => {

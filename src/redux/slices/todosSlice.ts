@@ -4,8 +4,8 @@ export interface Todo {
   id: string;
   name: string;
   description: string;
-  targetCompletionDate: Date;
-  completionDate?: Date;
+  targetCompletionDate: string;
+  completionDate?: string;
   completed?: boolean
 }
 
@@ -19,6 +19,7 @@ export const todosSlice = createSlice({
       return [...action.payload]
     },
     createTodo: (state, action: PayloadAction<Todo>)=> {
+      console.log(action.payload, 'poop')
       return (
         [...state, action.payload]
       )
@@ -26,7 +27,7 @@ export const todosSlice = createSlice({
     completeTodo: (state: Todo[], action: PayloadAction<string>) => {
       return (
         state.map(todo => todo.id === action.payload ? {
-          ...todo, completed: true, completionDate: new Date(Date.now())
+          ...todo, completed: true, completionDate: new Date(Date.now()).toLocaleDateString()
         } : todo)
       )
     },

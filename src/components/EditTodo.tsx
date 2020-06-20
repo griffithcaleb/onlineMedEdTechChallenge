@@ -46,13 +46,13 @@ export const EditTodo: FC<EditTodoProps> = ({ toggleModal, todo}) => {
                 {!!todo?.targetCompletionDate &&
                   <>
                     <Text style={styles.descriptionHeader}>{editText.target}</Text>
-                    <Text>{new Date(todo.targetCompletionDate).toLocaleDateString()}</Text>
+                    <Text>{todo.targetCompletionDate}</Text>
                   </>
                 }
                 {!!todo?.completionDate &&
                   <>
                    <Text style={styles.descriptionHeader}>{editText.completionDate}</Text>
-                  <Text>{new Date(todo.completionDate).toLocaleDateString()}</Text>
+                  <Text>{todo.completionDate}</Text>
                    </>
                 }
                 <TouchableOpacity

@@ -14,7 +14,13 @@ export const headerStyles = StyleSheet.create({
     top: 0,
     zIndex: 99,
     borderBottomColor: colors.lightBlue,
-    borderBottomWidth: 5
+    borderBottomWidth: 5,
+            shadowOffset: {
+            width: 1.5,
+            height: 2.5
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
   },
   titleStyle: {
     alignSelf: 'flex-start',

@@ -1,14 +1,13 @@
-import {StyleSheet, Dimensions} from 'react-native'
-import { colors } from '../lib/colors'
+import {Dimensions, StyleSheet} from 'react-native';
+import { colors } from '../lib/colors';
 
-const { height, width } = Dimensions.get('screen')
+const { height, width } = Dimensions.get('screen');
 
 export const homeStyles = StyleSheet.create({
-
   container: {
     height,
     width,
-    alignContent: 'center',
+    alignContent: 'center'
   },
   continueButton: {
     backgroundColor: colors.lightBlue,
@@ -36,4 +35,4 @@ export const homeStyles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold'
   }
-})
+});

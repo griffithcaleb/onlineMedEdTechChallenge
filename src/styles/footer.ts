@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native'
-import { colors } from '../lib/colors'
+import { StyleSheet } from 'react-native';
+import { colors } from '../lib/colors';
 
 export const footerStyles = StyleSheet.create({
   container: {
     height: 60,
     width: '100%',
-    display: "flex",
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,

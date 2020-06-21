@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
-import { View, Text } from 'react-native'
-import { headerStyles as styles } from '../styles/header'
+import React, { FC } from 'react';
+import { Text, View } from 'react-native';
+import { headerStyles as styles } from '../styles/header';
 
 
 const headerText = 'Online Med Ed: To-Dos';
@@ -10,6 +10,6 @@ export const Header: FC = () => {
     <View style={styles.container}>
       <Text style={styles.titleStyle}>{headerText}</Text>
     </View>
-  )
-}
+  );
+};
 

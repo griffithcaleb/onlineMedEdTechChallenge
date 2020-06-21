@@ -1,10 +1,10 @@
-import { ConnectedProps, connect } from "react-redux"
+import { connect, ConnectedProps } from "react-redux"
 import { RootState } from "../store";
 
 export const mapState = (state: RootState) => ({
   todos: state.todos
-})
+});
 
-export const connector = connect(mapState)
+export const connector = connect(mapState);
 
-export type PropsFromRedux = ConnectedProps<typeof connector>
+export type PropsFromRedux = ConnectedProps<typeof connector>;

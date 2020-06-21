@@ -1,26 +1,26 @@
-import React, {FC, useState} from 'react'
-import {Formik } from 'formik'
+import React, {FC, useState} from 'react';
+import {Formik } from 'formik';
 import * as Yup from 'yup';
-import {View, TextInput, Text, TouchableOpacity, Image } from 'react-native'
-import DatePicker from "react-datepicker";
-import { AddTodoFormFields, initialValues, todoValidation } from '../lib/forms/todoForm'
-import { createNewTodo } from '../redux/actionCreators/todos'
-import { createNewTodoStyles as styles } from '../styles/createNewTodo'
-import { colors } from '../lib/colors';
+import {Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import DatePicker from 'react-datepicker';
+import { AddTodoFormFields, initialValues, todoValidation } from '../lib/forms/todoForm';
+import { createNewTodo } from '../redux/actionCreators/todos';
+import { createNewTodoStyles as styles } from '../styles/createNewTodo';
 import { TodoButton } from './TodoButton';
+import { colors } from '../lib/colors'
 
 interface CreateNewTodoProps {
-  toggleModal: () => void
+  toggleModal: () => void;
 }
 
 export const CreateNewTodo: FC<CreateNewTodoProps> = ({toggleModal}) => {
-  const [step, setStep] = useState<number>(1)
-  
+  const [step, setStep] = useState<number>(1);
+
   const onFormSubmit = async (values: AddTodoFormFields) => {
-    createNewTodo(values)
-    toggleModal()
+    createNewTodo(values);
+    toggleModal();
   };
-  
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.back} onPress={toggleModal}>
@@ -33,6 +33,7 @@ export const CreateNewTodo: FC<CreateNewTodoProps> = ({toggleModal}) => {
             validationSchema={Yup.object().shape(todoValidation)}
           >
             {f => {
+              // tslint:disable-next-line:cyclomatic-complexity
               return (
                 <>
                   {step === 1 &&
@@ -77,30 +78,31 @@ export const CreateNewTodo: FC<CreateNewTodoProps> = ({toggleModal}) => {
                      <Text style={styles.createStepHeader}>{createText.date}</Text>
                       <DatePicker
                         selected={f.values.date}
-                        onChange={(e) => f.setFieldValue('date', e)}
-                        dateFormat="MMMM d"
+                        onChange={e => f.setFieldValue('date', e)}
+                        dateFormat='MMMM d'
                       />
                     </>
                   }
-                  <TodoButton 
+                  <TodoButton
                     title={step === 3 && 'Create!' || 'Continue'}
-                    onButtonPress={step === 3 && f.submitForm || (() => setStep(step + 1)) }
+                    onButtonPress={step === 3 && f.submitForm || (() => setStep(step + 1))}
                     buttonStyle={styles.continueButton}
                     titleStyle={styles.buttonText}
-                    disabled={(step === 1 && f.errors.name || step === 2 && f.errors.description) && true || false}
+                    disabled={(step === 1 && f.errors.name || step === 2 && f.errors.description)
+                       && true || false}
                   />
                 </>
-              )
+              );
             }}
           </Formik >
       </View>
     </View>
-  )
-}
+  );
+};
 
 const createText = {
   name: 'Name your to do!',
   description: 'Describe your to do!',
   required: '*required*',
   date: 'What day do you need to get this done?'
-}
+};

@@ -31,6 +31,6 @@ export const FullList: FC<FullListProps> = ({todos, handleTodoEdit}) => {
 const styles = StyleSheet.create({
   listContainer: {
     flexDirection: 'row',
-    height: '100%'
+    height: 'fit-content'
   },
 })

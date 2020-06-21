@@ -42,7 +42,9 @@ export const EditTodo: FC<EditTodoProps> = ({ toggleModal, todo}) => {
                 <Text style={styles.descriptionHeader}>{editText.nameHeader}</Text>
                 <Text>{todo?.name}</Text>
                 <Text style={styles.descriptionHeader}>{editText.descriptionHeader}</Text>
-                <Text>{todo?.description}</Text>
+                <View style={styles.descriptionContentContainer}>
+                  <Text style={styles.descriptorText}>{todo?.description}</Text>
+                </View>
                 {!!todo?.targetCompletionDate &&
                   <>
                     <Text style={styles.descriptionHeader}>{editText.target}</Text>

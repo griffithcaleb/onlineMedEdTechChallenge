@@ -67,12 +67,19 @@ export const editTodoStyles = StyleSheet.create({
     descriptionContainer: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 20,
     },
     descriptionHeader: {
         fontWeight: 'bold',
         paddingTop: 15,
         paddingBottom: 5,
         fontSize: 20
-    }
+    },
+  descriptionContentContainer: {
+    width: '100%'
+  },
+  descriptorText: {
+    textAlign: 'center'
+  }
 })

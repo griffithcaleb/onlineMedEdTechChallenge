@@ -24,6 +24,8 @@ export const homeStyles = StyleSheet.create({
       width: 1.5,
       height: -1.5
     },
+    position: 'sticky' as any,
+    bottom: 100,
     shadowOpacity: 0.3,
     shadowRadius: 5,
     borderColor: colors.darkBlue,

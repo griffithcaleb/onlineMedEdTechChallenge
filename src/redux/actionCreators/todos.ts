@@ -50,7 +50,7 @@ export const updateTodo = (todo: Todo, values: AddTodoFormFields ): void => {
     id,
     name: values.name,
     description: values.description,
-    targetCompletionDate: values.date,
+    targetCompletionDate: new Date(values.date).toLocaleDateString(),
     completionDate,
     completed
   }

@@ -4,6 +4,7 @@ import { Image, View, Text, FlatList, ListRenderItemInfo, TouchableOpacity } fro
 import { completeTodo, setTodoToNotCompleted, deleteTodo } from '../redux/actionCreators/todos'
 import {listStyles as styles } from '../styles/list'
 import { colors } from '../lib/colors'
+import { TodoListItemContent } from '../components/TodoListItemContent'
 
 interface ListProps {
     todos?: Todo[]
@@ -15,14 +16,18 @@ export const List: FC<ListProps> = ({ todos, type, handleTodoEdit}) => {
     const header = type === 'Todo' && `To do (${todos?.length})` || `Done (${todos?.length})`
 
     const renderNotCompletedTodos = ({
-      item: { name, id}}: ListRenderItemInfo<Todo>) => {
+      item: { name, id, description, targetCompletionDate}}: ListRenderItemInfo<Todo>) => {
       return (
         <TouchableOpacity
           style={[styles.listItem, type === 'Todo' && 
           {backgroundColor: colors.lightRed} || {backgroundColor: colors.lightGreen}]}
           onPress={type === 'Todo' && (() => completeTodo(id)) || (() => setTodoToNotCompleted(id))}
           >
-          <Text style={styles.nameText}numberOfLines={1}>{name}</Text>
+          <TodoListItemContent
+            name={name}
+            description={description}
+            targetCompletionDate={targetCompletionDate}
+          />
           <TouchableOpacity
             onPress={() => deleteTodo(id)}
             style={styles.deleteContainer}>

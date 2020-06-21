@@ -13,6 +13,21 @@ export const listStyles = StyleSheet.create({
     underlineContainer: {
 
     },
+    contentContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      width: '100%'
+    },
+    descriptorHeader: {
+      fontSize: 16, 
+      fontWeight: 'bold'
+    },
+    descriptorText: {
+      padding: 5,
+      flexWrap: 'wrap',
+      textAlign: 'center'
+    },
     edit: {
       height: 25, 
       width: 25
@@ -51,6 +66,10 @@ export const listStyles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 5,
     },
+   descriptionContainer: {
+    flexDirection: 'column',
+    width: '100%'
+   },
     delete: {
         height: 15,
         width: 15,
